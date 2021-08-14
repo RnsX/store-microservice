@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  productserviceapi:
+    image: rnsvla/productserviceapi
+    build:
+      context: .
+      dockerfile: ProductService/Dockerfile
+
+  invoiceserviceapi:
+    image: rnsvla/invoiceserviceapi
+    build:
+      context: .
+      dockerfile: InvoiceService/Dockerfile
+
