@@ -44,11 +44,13 @@ namespace ProductServiceLib
 
         public int CheckInventory(int id)
         {
-            //string sql = "";
-            //var storage = _db.LoadData<int, dynamic>(sql, new { id = id }).FirstOrDefault();
-            //var availableItemCount = storage - ReservedItems.Count(x => x.ItemId == id && (DateTime.Now - x.ReservationTime).Minutes <= 15);
-            //return availableItemCount;
-            return 10 - ReservedItems.Count(x => x.ItemId == id && (DateTime.Now - x.ReservationTime).Minutes <= 15);
+            string sql = "";
+            var storage = _db.LoadData<int, dynamic>(sql, new { id = id }).FirstOrDefault();
+            var availableItemCount = storage - ReservedItems.Count(x => x.ItemId == id && (DateTime.Now - x.ReservationTime).Minutes <= 15);
+            return availableItemCount;
+
+            // Test
+            //return 10 - ReservedItems.Count(x => x.ItemId == id && (DateTime.Now - x.ReservationTime).Minutes <= 15);
         }
 
         public ReservationStatus ReserveItem(int id, int quantity)
